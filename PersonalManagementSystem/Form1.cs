@@ -113,6 +113,14 @@ namespace PersonalManagementSystem
             else
                 MessageBox.Show("You already opened one...");
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            login form = new login();
+            form.Show();
+            this.Close();
         } 
     }
 }
