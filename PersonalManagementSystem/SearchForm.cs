@@ -14,7 +14,7 @@ namespace PersonalManagementSystem
     {
         public bool closed = false;
         string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
-        
+        int control;
         public SearchForm()
         {
             InitializeComponent();
@@ -49,15 +49,97 @@ namespace PersonalManagementSystem
             
             try
             {
-                komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler";
-                //komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where Ad='" + searchTextBox.Text + "'";
-                //komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where Soyad='" + searchTextBox.Text + "'";
-                
+                if (searchCombo.Text =="T.C. Number")
+                {
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where TCKimlikNo='" + searchTextBox.Text + "'";
+                }
+                if (searchCombo.Text == "Name")
+                {
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where Ad='" + searchTextBox.Text + "'";
+                }
+                if (searchCombo.Text == "Surname")
+                {
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where Soyad='" + searchTextBox.Text + "'";
+                }
+                if (searchCombo.Text == "Faculty")
+                {
+                    switch (searchTextBox.Text)
+                    {
+                        case "Mühendislik":
+                            control = 1;
+                            break;
+                        case "Fen-Edebiyat":
+                            control = 2;
+                            break;
+                        case "Mimarlık":
+                            control = 3;
+                            break;
+                        case "Eğitim":
+                            control = 4;
+                            break;
+                        case "Tıp":
+                            control = 5;
+                            break;
+                        case "İletişim":
+                            control = 6;
+                            break;
+                        case "Hemşirelik":
+                            control = 7;
+                            break;
+                        case "Yabancı Diller":
+                            control = 8;
+                            break;
+                        case "Hukuk":
+                            control = 9;
+                            break;
+                        case "Iktisadi ve Idari Bilimler":
+                            control = 10;
+                            break;
+                        default:
+                            MessageBox.Show("Geçerli bir değer girin:", "Uyarı", MessageBoxButtons.OK);
+                            break;
+                    }
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where DepartmanID='" +control+ "'";
+                }
+                if (searchCombo.Text == "Bllod Type")
+                {
+                    switch(searchTextBox.Text)
+                    {
+                        case "Arh+":
+                            control=1;
+                            break;
+                        case "Brh+":
+                            control=2;
+                            break;
+                        case "Arh-":
+                            control=3;
+                            break;
+                        case "Brh-":
+                            control=4;
+                            break;
+                        case "ABrh+":
+                            control=5;
+                            break;
+                        case "ABrh-":
+                            control=6;
+                            break;
+                        case "0rh+":
+                            control=7;
+                            break;
+                        case "0rh-":
+                            control=8;
+                            break;
+                        default:
+                            MessageBox.Show("Geçerli bir değer girin:", "Uyarı", MessageBoxButtons.OK);
+                            break;
+                    }
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where KanGrubu='" +control+ "'";
+                }
+
                 
                 myAdapter3.Fill(sds3, "Kisisel_Bilgiler");
                 DataTable stable1 = sds3.Tables["Kisisel_Bilgiler"];
                 baglanti.Close();
-
 
                 // sql baglanti end
 

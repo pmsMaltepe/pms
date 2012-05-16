@@ -22,12 +22,12 @@ namespace PersonalManagementSystem
         {
             
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            
         }
 
         private void adminTab_Load(object sender, EventArgs e)
         {
-            textBox1.Text = searchID.ToString();
+           
             panel1.Visible = false;
             tabControl1.Visible = false;
             button3_Click(sender,e);
@@ -52,13 +52,54 @@ namespace PersonalManagementSystem
             while (reader.Read())
             {
                 lblAdSoyad.Text="Name Surname : "+reader["Ad"].ToString().TrimEnd()+"  "+reader["Soyad"].ToString().TrimEnd();
-                textBox9.Text = reader["TcKimlikNo"].ToString().TrimEnd();
-                textBox10.Text = reader["Cinsiyet"].ToString().TrimEnd();
-                textBox12.Text = reader["Ev_Tel_No"].ToString().TrimEnd();
-                textBox13.Text = reader["Cep_No"].ToString().TrimEnd();
-                textBox14.Text = reader["Adres"].ToString().TrimEnd();
-                textBox4.Text = reader["IseGirisTarihi"].ToString().TrimEnd();
-                textBox5.Text = reader["KurumSicilNo"].ToString().TrimEnd();
+                NameTextBox.Text = reader["Ad"].ToString().TrimEnd();
+                SurnameTextBox.Text = reader["Soyad"].ToString().TrimEnd();
+                TcNoTextBox.Text = reader["TcKimlikNo"].ToString().TrimEnd();
+
+                if (reader["Cinsiyet"].ToString().TrimEnd() == "Male")
+                    maleRadio.Checked = true;
+                else
+                    femaleRadio.Checked = true;
+                homePhone.Text = reader["Ev_Tel_No"].ToString().TrimEnd();
+                mobilePhone.Text = reader["Cep_No"].ToString().TrimEnd();
+                address.Text = reader["Adres"].ToString().TrimEnd();
+                dateTextBox.Text = reader["IseGirisTarihi"].ToString().TrimEnd();
+                InsRegisterNo.Text = reader["KurumSicilNo"].ToString().TrimEnd();
+
+                switch (Convert.ToInt16(reader["DepartmanID"]))
+                {
+                    case 3:
+                        FacultyComboBox.SelectedIndex = 1;
+                        break;
+                    case 6:
+                        FacultyComboBox.SelectedIndex = 2;
+                        break;
+                    case 10:
+                        FacultyComboBox.SelectedIndex = 3;
+                        break;
+                    case 4:
+                        FacultyComboBox.SelectedIndex = 5;
+                        break;
+                    case 1:
+                        FacultyComboBox.SelectedIndex = 6;
+                        break;
+                    case 9:
+                        FacultyComboBox.SelectedIndex = 7;
+                        break;
+                    case 5:
+                        FacultyComboBox.SelectedIndex = 8;
+                        break;
+                    case 2:
+                        FacultyComboBox.SelectedIndex = 9;
+                        break;
+                    case 8:
+                        FacultyComboBox.SelectedIndex = 10;
+                        break;
+                }
+
+
+
+
             }
             reader.Close();
             baglanti.Close();
@@ -78,7 +119,7 @@ namespace PersonalManagementSystem
             reader = komut3.ExecuteReader();
             while (reader.Read())
             {
-                textBox11.Text = reader["Grup"].ToString().TrimEnd();
+                BloodComboBox.Text = reader["Grup"].ToString().TrimEnd();
 
             }
             
@@ -88,7 +129,7 @@ namespace PersonalManagementSystem
             reader = komut4.ExecuteReader();
             while (reader.Read()) 
             {
-                textBox2.Text = reader["Unvani"].ToString().TrimEnd();
+                TitleComboBox.Text = reader["Unvani"].ToString().TrimEnd();
 
             }
             baglanti.Close();
@@ -98,7 +139,7 @@ namespace PersonalManagementSystem
             reader = komut5.ExecuteReader();
             while (reader.Read())
             {
-                textBox3.Text = reader["Gorevi"].ToString().TrimEnd();
+                TypeComboBox.Text = reader["Gorevi"].ToString().TrimEnd();
 
             }
             baglanti.Close();
@@ -108,30 +149,25 @@ namespace PersonalManagementSystem
             while (reader.Read())
             {
                 lblBolum.Text ="Department: " +reader["BolumAdi"].ToString().TrimEnd();
+                DeptComboBox.Text = lblBolum.Text;
 
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SqlConnection baglanti = new SqlConnection(connstring);
-            SqlCommand komut0 = new SqlCommand("select PersonelID from Kisisel_Bilgiler ", baglanti);
-            SqlDataReader reader;
-            baglanti.Open();
-            reader = komut0.ExecuteReader();
-            comboBox1.Items.Clear();
-            while (reader.Read())
-            {
-                comboBox1.Items.Add(reader["PersonelID"].ToString().TrimEnd());
+        
 
-            }
-            baglanti.Close();
-        }
+       
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             this.Close();
             closed = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            groupBox3.Enabled = true;
+            groupBox2.Enabled = true;
         }
 
     }
