@@ -51,6 +51,7 @@
             this.searchCombo.Name = "searchCombo";
             this.searchCombo.Size = new System.Drawing.Size(168, 24);
             this.searchCombo.TabIndex = 0;
+            this.searchCombo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchCombo_KeyPress);
             // 
             // searchTextBox
             // 
@@ -58,6 +59,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(191, 22);
             this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
             // btnFind
             // 
@@ -125,7 +127,7 @@
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.searchCombo);
             this.Name = "SearchForm";
-            this.Text = "SearchForm";
+            this.Text = "Search";
             this.Load += new System.EventHandler(this.SearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

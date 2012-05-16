@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+//designed and implemented by Yigitcan Bacakoglu
+//implemented by Eren Erciyes
 namespace PersonalManagementSystem
 {
     public partial class SearchForm : Form
@@ -175,6 +176,22 @@ namespace PersonalManagementSystem
             form.searchID =Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
             form.Show();
             
+        }
+
+        private void searchCombo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = (char)Keys.None;
+        }
+
+        private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnFind_Click(sender, e);
+                }
+            }
         }
     }
 }
