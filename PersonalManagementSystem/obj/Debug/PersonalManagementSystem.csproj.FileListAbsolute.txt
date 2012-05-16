@@ -14,3 +14,4 @@ C:\Users\Work\Documents\Visual Studio 2008\Projects\PersonalManagementSystem\Per
 C:\Users\Work\Documents\Visual Studio 2008\Projects\PersonalManagementSystem\PersonalManagementSystem\bin\Debug\pms.mdf
 C:\Users\Work\Documents\Visual Studio 2008\Projects\PersonalManagementSystem\PersonalManagementSystem\bin\Debug\pms_log.LDF
 C:\Users\Work\Documents\Visual Studio 2008\Projects\PersonalManagementSystem\PersonalManagementSystem\obj\Debug\PersonalManagementSystem.SearchForm.resources
+C:\Users\Work\Documents\Visual Studio 2008\Projects\PersonalManagementSystem\PersonalManagementSystem\obj\Debug\PersonalManagementSystem.PersonelForm.resources

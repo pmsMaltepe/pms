@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-//Designed and updated by Yigitcan Bacakoglu
 //Implemented by Tore Serter
+//Designed by Yigitcan Bacakoglu
 //
 
 namespace PersonalManagementSystem
@@ -48,23 +48,26 @@ namespace PersonalManagementSystem
                 }
                 else if (alinan_veri["UserLevel"].ToString() == "False")
                 {// kullanıcı girisi 
-                    MessageBox.Show("kullanıcı girisi formu");
+                    PersonelForm form = new PersonelForm();
+                    form.sessionUserID = sessionPersonelID;
+                    form.Show();
+                    this.Visible = false;
                 }
                 else
                 {//basarısız giris
-                    MessageBox.Show("basarisiz giris!");
+                    MessageBox.Show("User name or password is wrong!");
                     label3.Visible = true;
                 }
             }
             catch (InvalidOperationException ex)
             {
-
+                /*
                 //FOR TESTING
                 Form1 form = new Form1();
                 form.Show();
                 this.Visible = false;
-                //
-               // MessageBox.Show("hata!");
+                */
+               MessageBox.Show("Error!");
             }
 
 
@@ -106,8 +109,6 @@ namespace PersonalManagementSystem
                     button1_Click(sender, e);
                 }
             }
-        }
-
-        // Enter key down
+        }// Enter key down
     }
 }
