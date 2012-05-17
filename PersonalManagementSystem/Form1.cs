@@ -121,6 +121,23 @@ namespace PersonalManagementSystem
             login form = new login();
             form.Show();
             this.Close();
-        } 
+        }
+        userSettings form;
+        private void userSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (form == null || form.closed == true)
+            {
+                form = new userSettings();
+                form.sessionID = this.sessionUserID;
+                form.MdiParent = this;
+                form.Show();
+            }
+            else
+                MessageBox.Show("You already opened one...");
+
+        }
+
+       
     }
 }

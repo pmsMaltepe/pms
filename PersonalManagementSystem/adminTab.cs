@@ -166,8 +166,15 @@ namespace PersonalManagementSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            btnCancel.Visible = true;
+            btnSave.Visible = true;
             groupBox3.Enabled = true;
             groupBox2.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

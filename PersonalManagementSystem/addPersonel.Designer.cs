@@ -485,7 +485,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(163, 223);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(207, 22);
             this.dateTimePicker1.TabIndex = 29;
             this.dateTimePicker1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimePicker1_KeyPress);
             // 

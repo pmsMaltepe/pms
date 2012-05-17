@@ -96,7 +96,7 @@ namespace PersonalManagementSystem
             }
             catch
             {
-                toolStripStatusLabel1.Text = ("Couldn't connect to database. Please verify that you have installed SQL Server 2008 R2 ee le");
+                toolStripStatusLabel1.Text = ("Couldn't connect to database. Please verify that you have installed SQL Server 2008 R2");
                 toolStripStatusLabel1.ForeColor = Color.Red;
             }
         }

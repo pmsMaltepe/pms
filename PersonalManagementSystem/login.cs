@@ -61,13 +61,13 @@ namespace PersonalManagementSystem
             }
             catch (InvalidOperationException ex)
             {
-                /*
+                
                 //FOR TESTING
                 Form1 form = new Form1();
                 form.Show();
                 this.Visible = false;
-                */
-               MessageBox.Show("Error!");
+                
+              // MessageBox.Show("Error!");
             }
 
 

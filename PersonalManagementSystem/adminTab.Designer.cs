@@ -49,8 +49,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.InsRegisterNo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.CourseComboBox = new System.Windows.Forms.ComboBox();
@@ -85,7 +86,12 @@
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dateTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.userName = new System.Windows.Forms.TextBox();
+            this.oldPass = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -104,6 +110,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.lblAdSoyad);
@@ -114,7 +121,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(819, 133);
+            this.panel1.Size = new System.Drawing.Size(883, 133);
             this.panel1.TabIndex = 3;
             // 
             // button2
@@ -122,7 +129,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Location = new System.Drawing.Point(627, 12);
+            this.button2.Location = new System.Drawing.Point(592, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 102);
             this.button2.TabIndex = 21;
@@ -136,7 +143,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Location = new System.Drawing.Point(720, 12);
+            this.button3.Location = new System.Drawing.Point(782, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 102);
             this.button3.TabIndex = 22;
@@ -192,7 +199,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(811, 506);
+            this.tabPage2.Size = new System.Drawing.Size(875, 506);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Akademik Bilgiler";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -211,8 +218,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(805, 502);
-            this.splitContainer1.SplitterDistance = 516;
+            this.splitContainer1.Size = new System.Drawing.Size(869, 502);
+            this.splitContainer1.SplitterDistance = 557;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
@@ -225,7 +232,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(19, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(419, 331);
+            this.dataGridView1.Size = new System.Drawing.Size(521, 423);
             this.dataGridView1.TabIndex = 0;
             // 
             // Day
@@ -301,16 +308,18 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(811, 506);
+            this.tabPage1.Size = new System.Drawing.Size(875, 506);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kisisel Bilgiler";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTextBox);
-            this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.btnSave);
+            this.groupBox2.Controls.Add(this.dateTextBox);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.btnCancel);
             this.groupBox2.Controls.Add(this.InsRegisterNo);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.CourseComboBox);
@@ -326,10 +335,18 @@
             this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(337, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(455, 469);
+            this.groupBox2.Size = new System.Drawing.Size(528, 469);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Job Information";
+            // 
+            // dateTextBox
+            // 
+            this.dateTextBox.Location = new System.Drawing.Point(163, 229);
+            this.dateTextBox.Mask = "00-00-0000";
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.Size = new System.Drawing.Size(175, 22);
+            this.dateTextBox.TabIndex = 31;
             // 
             // label15
             // 
@@ -340,19 +357,19 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "Date of Start :";
             // 
-            // btnSave
+            // btnCancel
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(354, 356);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(91, 107);
-            this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Visible = false;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCancel.Location = new System.Drawing.Point(334, 356);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 107);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
             // 
             // InsRegisterNo
             // 
@@ -490,7 +507,6 @@
             // 
             this.groupBox3.Controls.Add(this.address);
             this.groupBox3.Controls.Add(this.maleRadio);
-            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.femaleRadio);
             this.groupBox3.Controls.Add(this.label12);
@@ -520,7 +536,7 @@
             this.address.MaxLength = 600;
             this.address.Multiline = true;
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(140, 82);
+            this.address.Size = new System.Drawing.Size(140, 135);
             this.address.TabIndex = 8;
             // 
             // maleRadio
@@ -537,19 +553,23 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.userName);
+            this.groupBox4.Controls.Add(this.oldPass);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.radioPersonel);
             this.groupBox4.Controls.Add(this.radioAdmin);
-            this.groupBox4.Location = new System.Drawing.Point(10, 367);
+            this.groupBox4.Location = new System.Drawing.Point(16, 270);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(294, 96);
+            this.groupBox4.Size = new System.Drawing.Size(301, 120);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "User Level";
+            this.groupBox4.Text = "Login Informations";
             // 
             // radioPersonel
             // 
             this.radioPersonel.AutoSize = true;
-            this.radioPersonel.Location = new System.Drawing.Point(6, 62);
+            this.radioPersonel.Location = new System.Drawing.Point(124, 26);
             this.radioPersonel.Name = "radioPersonel";
             this.radioPersonel.Size = new System.Drawing.Size(93, 21);
             this.radioPersonel.TabIndex = 11;
@@ -718,23 +738,76 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(819, 535);
+            this.tabControl1.Size = new System.Drawing.Size(883, 535);
             this.tabControl1.TabIndex = 0;
             // 
-            // dateTextBox
+            // btnDelete
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(163, 229);
-            this.dateTextBox.Mask = "00-00-0000";
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(175, 22);
-            this.dateTextBox.TabIndex = 31;
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDelete.Location = new System.Drawing.Point(689, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 102);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSave.Location = new System.Drawing.Point(431, 356);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(91, 107);
+            this.btnSave.TabIndex = 32;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Visible = false;
+            // 
+            // userName
+            // 
+            this.userName.Location = new System.Drawing.Point(170, 54);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(108, 22);
+            this.userName.TabIndex = 24;
+            // 
+            // oldPass
+            // 
+            this.oldPass.Location = new System.Drawing.Point(170, 82);
+            this.oldPass.Name = "oldPass";
+            this.oldPass.PasswordChar = '*';
+            this.oldPass.Size = new System.Drawing.Size(108, 22);
+            this.oldPass.TabIndex = 23;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 82);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 17);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Password";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(8, 54);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 17);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Username:";
             // 
             // adminTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(819, 679);
+            this.ClientSize = new System.Drawing.Size(883, 679);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -789,7 +862,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox InsRegisterNo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox CourseComboBox;
@@ -824,5 +897,11 @@
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.MaskedTextBox dateTextBox;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox userName;
+        private System.Windows.Forms.TextBox oldPass;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }
