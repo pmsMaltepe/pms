@@ -211,8 +211,8 @@ namespace PersonalManagementSystem
 
                      
                      // Akademik olmayanlar icin fakulte ve unvan kaydetmez.
-                     if (TypeComboBox.SelectedIndex == 1)
-                     {
+                   /*  if (TypeComboBox.SelectedIndex == 1)
+                     {*/
 
                          string insertPersonal
                              = "insert into Kisisel_Bilgiler" +
@@ -224,7 +224,7 @@ namespace PersonalManagementSystem
                          SqlCommand komutInsertPersonal = new SqlCommand(insertPersonal, baglanti);
 
                          komutInsertPersonal.ExecuteNonQuery();
-                     }
+                    /* }
                      else
                      {
                          string insertPersonalNonAcademic = "insert into Kisisel_Bilgiler" +
@@ -236,7 +236,7 @@ namespace PersonalManagementSystem
 
                          komutInsertPersonal.ExecuteNonQuery();
                      }
-
+                         */
                     ////////////////////
 
                     int userLevel;
@@ -286,6 +286,7 @@ namespace PersonalManagementSystem
         private void addPersonel_Load(object sender, EventArgs e)
         {
             this.ControlBox = false; // removes red X button from right top
+            FacultyComboBox.SelectedIndex = 0;
         }
 
         private void BloodComboBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -332,7 +333,7 @@ namespace PersonalManagementSystem
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (TypeComboBox.SelectedIndex == 0)
+            /*if (TypeComboBox.SelectedIndex == 0)
             {
                 FacultyComboBox.Enabled = true;
                 DeptComboBox.Enabled = true;
@@ -347,7 +348,7 @@ namespace PersonalManagementSystem
                 DeptComboBox.Enabled =false;
                 CourseComboBox.Enabled = false;
 
-            }
+            }*/
 
 
 

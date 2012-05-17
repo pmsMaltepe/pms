@@ -197,7 +197,7 @@
     <Content Include="pms.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="pms_log.LDF">
+    <Content Include="pms_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>pms.mdf</DependentUpon>
     </Content>

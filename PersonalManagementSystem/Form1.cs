@@ -99,6 +99,9 @@ namespace PersonalManagementSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
+            if(MessageBox.Show("Are you sure want to exit?","Exit",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            
             Application.Exit();
         }//Exit Button
         SearchForm searchForm;
@@ -136,6 +139,18 @@ namespace PersonalManagementSystem
             else
                 MessageBox.Show("You already opened one...");
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button4_Click(sender, e);
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            login form = new login();
+            form.Show();
+            this.Close();
         }
 
        

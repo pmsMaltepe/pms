@@ -15,8 +15,9 @@ namespace PersonalManagementSystem
     public partial class adminTab : Form
     {
         string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
-        int ID;
-        public int searchID=0;//comes from searchForm 
+        int ID,unique,departmanID,bolumid;
+        string text;
+        public int searchID;//comes from searchForm 
         public bool closed = false;
         public adminTab()
         {
@@ -27,16 +28,75 @@ namespace PersonalManagementSystem
 
         private void adminTab_Load(object sender, EventArgs e)
         {
-           
+            this.ControlBox = false; // removes red X button from right top
             panel1.Visible = false;
             tabControl1.Visible = false;
+            ID = searchID;
             button3_Click(sender,e);
+            
+
+            SqlConnection baglanti = new SqlConnection(connstring);
+            SqlCommand komut8 = new SqlCommand("select * from Kisisel_Bilgiler inner join Bolumler on Kisisel_Bilgiler.DepartmanID=Bolumler.DepartmanID where Kisisel_Bilgiler.PersonelID =" + ID, baglanti);
+            SqlDataReader reader;
+            baglanti.Open();
+            reader = komut8.ExecuteReader();
+            CourseComboBox.Items.Clear();
+            DeptComboBox.Items.Clear();
+
+            while (reader.Read())
+            {
+              //  CourseComboBox.Items.Add(reader["DersAdi"].ToString().TrimEnd());
+                DeptComboBox.Items.Add(reader["BolumAdi"].ToString().TrimEnd());
+                bolumid = Convert.ToInt16(reader["id"]);
+            }
+            reader.Close();
+            SqlCommand komut = new SqlCommand("select * from Dersler where BolumID=" + bolumid, baglanti);
+
+
+
+
+            reader = komut.ExecuteReader();
+            CourseComboBox.Items.Clear();
+            while (reader.Read())
+            {
+                CourseComboBox.Items.Add(reader["DersAdi"].ToString().TrimEnd());
+
+            }
+            reader.Close();
+            baglanti.Close();
+            
+            
+            
+            
+            //
+
+            /*baglanti.Open();
+            SqlCommand komut9 = new SqlCommand("select * from Kisisel_Bilgiler inner join DersProgram on Kisisel_Bilgiler.PersonelID=DersProgram.HocaID where PersonelID =" + ID, baglanti);
+            reader = komut9.ExecuteReader();
+            reader.Read();
+            unique = Convert.ToInt32(reader["id"]);
+            baglanti.Close();
+            //
+            baglanti.Open();
+            SqlCommand komut10 = new SqlCommand("select * from DersProgram inner join Dersler on DersProgram.id=Dersler.id where DersProgram.id=" + unique, baglanti);
+            reader = komut10.ExecuteReader();
+            while (reader.Read())
+            {
+                text = reader["DersAdi"].ToString().TrimEnd();
+
+            }
+            CourseComboBox.SelectedText = text;
+            */
+
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
            
-                ID = searchID;
+               
                 panel1.Visible = true;
                 tabControl1.Visible = true;
                 SqlConnection baglanti = new SqlConnection(connstring);
@@ -190,7 +250,7 @@ namespace PersonalManagementSystem
                 while (reader.Read())
                 {
                     lblBolum.Text = "Department: " + reader["BolumAdi"].ToString().TrimEnd();
-                    DeptComboBox.Text = lblBolum.Text;
+                    DeptComboBox.Text = lblBolum.Text.Substring(12);
 
                 }
          
@@ -226,6 +286,107 @@ namespace PersonalManagementSystem
             btnCancel.Visible = false;
             btnSave.Visible = false;
         }
+
+        private void FacultyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeptComboBox.Items.Clear();
+            CourseComboBox.Items.Clear();
+            DeptComboBox.Text = "";
+            CourseComboBox.Text = "";
+
+            switch (FacultyComboBox.SelectedIndex)
+            {
+                case 1:
+                    departmanID = 3;
+                    break;
+                case 2:
+                    departmanID = 6;
+                    break;
+                case 3:
+                    departmanID = 10;
+                    break;
+                case 4:
+                    departmanID = 4;
+                    break;
+                case 5:
+                    departmanID = 1;
+                    break;
+                case 6:
+                    departmanID = 9;
+                    break;
+                case 7:
+                    departmanID = 5;
+                    break;
+                case 8:
+                    departmanID = 2;
+                    break;
+                case 9:
+                    departmanID = 8;
+                    break;
+            }
+           
+            SqlConnection baglanti = new SqlConnection(connstring);
+
+            
+            SqlCommand komut = new SqlCommand("select * from Bolumler where DepartmanID="+departmanID,baglanti);
+            
+            SqlDataReader reader;
+            baglanti.Open();
+           
+            reader = komut.ExecuteReader();
+            DeptComboBox.Items.Clear();
+            while (reader.Read())
+            {
+                DeptComboBox.Items.Add(reader["BolumAdi"].ToString().TrimEnd());
+               
+            }
+            reader.Close();
+            baglanti.Close();
+        }
+
+        private void DeptComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            CourseComboBox.Items.Clear();
+            CourseComboBox.Text = "";
+            SqlConnection baglanti = new SqlConnection(connstring);
+
+            SqlCommand komut2 = new SqlCommand("select id from Bolumler where BolumAdi='" + DeptComboBox.Text + "'", baglanti);
+
+            SqlDataReader reader;
+
+            baglanti.Open();
+            reader = komut2.ExecuteReader();
+            while (reader.Read())
+            {
+                bolumid = Convert.ToInt32(reader["id"]);
+
+            }
+
+
+
+            reader.Close();
+            SqlCommand komut = new SqlCommand("select * from Dersler where BolumID=" + bolumid, baglanti);
+
+
+
+
+            reader = komut.ExecuteReader();
+            CourseComboBox.Items.Clear();
+            while (reader.Read())
+            {
+                CourseComboBox.Items.Add(reader["DersAdi"].ToString().TrimEnd());
+
+            }
+            reader.Close();
+            baglanti.Close(); 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+        
 
     }
 }

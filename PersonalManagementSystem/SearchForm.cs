@@ -102,7 +102,7 @@ namespace PersonalManagementSystem
                     }
                     komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where DepartmanID='" +control+ "'";
                 }
-                if (searchCombo.Text == "Bllod Type")
+                if (searchCombo.Text == "Blood Type")
                 {
                     switch(searchTextBox.Text)
                     {

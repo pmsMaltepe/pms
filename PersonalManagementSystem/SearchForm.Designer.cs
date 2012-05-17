@@ -46,7 +46,7 @@
             "Name",
             "Surname",
             "Faculty",
-            "Bllod Type"});
+            "Blood Type"});
             this.searchCombo.Location = new System.Drawing.Point(12, 12);
             this.searchCombo.Name = "searchCombo";
             this.searchCombo.Size = new System.Drawing.Size(168, 24);
@@ -113,7 +113,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(442, 241);
             this.dataGridView1.TabIndex = 7;
- 
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // SearchForm

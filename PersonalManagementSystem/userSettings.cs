@@ -28,22 +28,24 @@ namespace PersonalManagementSystem
         {
              baglanti = new SqlConnection(connstring);
              this.ControlBox = false; // removes red X button from right top
-            
-           SqlCommand komut = new SqlCommand("select * from Login where PersonalID=" + sessionID, baglanti);
-            SqlDataReader reader;
-            baglanti.Open();
-            reader = komut.ExecuteReader();
-            reader.Read();
-            userName.Text = reader["UserName"].ToString();
-            oldPassword = reader["Password"].ToString();
-            
-            if (reader["UserLevel"].ToString() == "True")
-                radioAdmin.Checked = true;
-            else
-                radioPersonnel.Checked = true;
-            reader.Close();
-            baglanti.Close();
-            
+             try
+             {
+                 SqlCommand komut = new SqlCommand("select * from Login where PersonalID=" + sessionID, baglanti);
+                 SqlDataReader reader;
+                 baglanti.Open();
+                 reader = komut.ExecuteReader();
+                 reader.Read();
+                 userName.Text = reader["UserName"].ToString();
+                 oldPassword = reader["Password"].ToString();
+
+                 if (reader["UserLevel"].ToString() == "True")
+                     radioAdmin.Checked = true;
+                 else
+                     radioPersonnel.Checked = true;
+                 reader.Close();
+                 baglanti.Close();
+             }
+             catch { }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
