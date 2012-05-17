@@ -177,5 +177,13 @@ namespace PersonalManagementSystem
 
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
+        }
+
     }
 }

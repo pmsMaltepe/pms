@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminTab));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblAdSoyad = new System.Windows.Forms.Label();
@@ -49,7 +50,15 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.dateTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.userName = new System.Windows.Forms.TextBox();
+            this.oldPass = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.radioPersonel = new System.Windows.Forms.RadioButton();
+            this.radioAdmin = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.InsRegisterNo = new System.Windows.Forms.TextBox();
@@ -67,9 +76,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.address = new System.Windows.Forms.TextBox();
             this.maleRadio = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.radioPersonel = new System.Windows.Forms.RadioButton();
-            this.radioAdmin = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this.femaleRadio = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
@@ -86,12 +92,6 @@
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.userName = new System.Windows.Forms.TextBox();
-            this.oldPass = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -103,8 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +123,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(883, 133);
             this.panel1.TabIndex = 3;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDelete.Location = new System.Drawing.Point(689, 12);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 102);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button2
             // 
@@ -340,6 +354,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Job Information";
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSave.Location = new System.Drawing.Point(431, 356);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(91, 107);
+            this.btnSave.TabIndex = 32;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Visible = false;
+            // 
             // dateTextBox
             // 
             this.dateTextBox.Location = new System.Drawing.Point(163, 229);
@@ -347,6 +375,77 @@
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.Size = new System.Drawing.Size(175, 22);
             this.dateTextBox.TabIndex = 31;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.userName);
+            this.groupBox4.Controls.Add(this.oldPass);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.radioPersonel);
+            this.groupBox4.Controls.Add(this.radioAdmin);
+            this.groupBox4.Location = new System.Drawing.Point(16, 270);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(301, 120);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Login Informations";
+            // 
+            // userName
+            // 
+            this.userName.Location = new System.Drawing.Point(170, 54);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(108, 22);
+            this.userName.TabIndex = 24;
+            // 
+            // oldPass
+            // 
+            this.oldPass.Location = new System.Drawing.Point(170, 82);
+            this.oldPass.Name = "oldPass";
+            this.oldPass.PasswordChar = '*';
+            this.oldPass.Size = new System.Drawing.Size(108, 22);
+            this.oldPass.TabIndex = 23;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 82);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 17);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Password";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(8, 54);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 17);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Username:";
+            // 
+            // radioPersonel
+            // 
+            this.radioPersonel.AutoSize = true;
+            this.radioPersonel.Location = new System.Drawing.Point(124, 26);
+            this.radioPersonel.Name = "radioPersonel";
+            this.radioPersonel.Size = new System.Drawing.Size(93, 21);
+            this.radioPersonel.TabIndex = 11;
+            this.radioPersonel.TabStop = true;
+            this.radioPersonel.Text = "Personnel";
+            this.radioPersonel.UseVisualStyleBackColor = true;
+            // 
+            // radioAdmin
+            // 
+            this.radioAdmin.AutoSize = true;
+            this.radioAdmin.Checked = true;
+            this.radioAdmin.Location = new System.Drawing.Point(6, 26);
+            this.radioAdmin.Name = "radioAdmin";
+            this.radioAdmin.Size = new System.Drawing.Size(112, 21);
+            this.radioAdmin.TabIndex = 10;
+            this.radioAdmin.TabStop = true;
+            this.radioAdmin.Text = "Administrator";
+            this.radioAdmin.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -370,6 +469,7 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // InsRegisterNo
             // 
@@ -551,44 +651,6 @@
             this.maleRadio.Text = "Male";
             this.maleRadio.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.userName);
-            this.groupBox4.Controls.Add(this.oldPass);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.radioPersonel);
-            this.groupBox4.Controls.Add(this.radioAdmin);
-            this.groupBox4.Location = new System.Drawing.Point(16, 270);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(301, 120);
-            this.groupBox4.TabIndex = 9;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Login Informations";
-            // 
-            // radioPersonel
-            // 
-            this.radioPersonel.AutoSize = true;
-            this.radioPersonel.Location = new System.Drawing.Point(124, 26);
-            this.radioPersonel.Name = "radioPersonel";
-            this.radioPersonel.Size = new System.Drawing.Size(93, 21);
-            this.radioPersonel.TabIndex = 11;
-            this.radioPersonel.TabStop = true;
-            this.radioPersonel.Text = "Personnel";
-            this.radioPersonel.UseVisualStyleBackColor = true;
-            // 
-            // radioAdmin
-            // 
-            this.radioAdmin.AutoSize = true;
-            this.radioAdmin.Checked = true;
-            this.radioAdmin.Location = new System.Drawing.Point(6, 26);
-            this.radioAdmin.Name = "radioAdmin";
-            this.radioAdmin.Size = new System.Drawing.Size(112, 21);
-            this.radioAdmin.TabIndex = 10;
-            this.radioAdmin.TabStop = true;
-            this.radioAdmin.Text = "Administrator";
-            this.radioAdmin.UseVisualStyleBackColor = true;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -741,67 +803,6 @@
             this.tabControl1.Size = new System.Drawing.Size(883, 535);
             this.tabControl1.TabIndex = 0;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDelete.Location = new System.Drawing.Point(689, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 102);
-            this.btnDelete.TabIndex = 23;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(431, 356);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(91, 107);
-            this.btnSave.TabIndex = 32;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Visible = false;
-            // 
-            // userName
-            // 
-            this.userName.Location = new System.Drawing.Point(170, 54);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(108, 22);
-            this.userName.TabIndex = 24;
-            // 
-            // oldPass
-            // 
-            this.oldPass.Location = new System.Drawing.Point(170, 82);
-            this.oldPass.Name = "oldPass";
-            this.oldPass.PasswordChar = '*';
-            this.oldPass.Size = new System.Drawing.Size(108, 22);
-            this.oldPass.TabIndex = 23;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 82);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 17);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Password";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 54);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 17);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Username:";
-            // 
             // adminTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -813,7 +814,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "adminTab";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "adminTab";
             this.Load += new System.EventHandler(this.adminTab_Load);
             this.panel1.ResumeLayout(false);
@@ -829,10 +830,10 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 

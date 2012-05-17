@@ -109,6 +109,11 @@ namespace PersonalManagementSystem
                     button1_Click(sender, e);
                 }
             }
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }// Enter key down
     }
 }

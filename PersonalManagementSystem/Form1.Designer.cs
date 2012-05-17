@@ -45,6 +45,22 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.changeBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFacultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.courseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlineChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -158,12 +174,18 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.menuToolStripMenuItem.Text = "File";
             // 
             // duzenToolStripMenuItem
             // 
+            this.duzenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.updateDeleteToolStripMenuItem});
             this.duzenToolStripMenuItem.Name = "duzenToolStripMenuItem";
             this.duzenToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.duzenToolStripMenuItem.Text = "Edit";
@@ -171,20 +193,25 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userSettingsToolStripMenuItem});
+            this.userSettingsToolStripMenuItem,
+            this.changeBackgroundToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.helpToolStripMenuItem.Text = "Settings";
             // 
             // userSettingsToolStripMenuItem
             // 
+            this.userSettingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("userSettingsToolStripMenuItem.Image")));
             this.userSettingsToolStripMenuItem.Name = "userSettingsToolStripMenuItem";
-            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(164, 24);
+            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.userSettingsToolStripMenuItem.Text = "User Settings";
             this.userSettingsToolStripMenuItem.Click += new System.EventHandler(this.userSettingsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
+            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aToolStripMenuItem,
+            this.contactUsToolStripMenuItem});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem1.Text = "Help";
@@ -211,6 +238,132 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(163, 20);
             this.toolStripStatusLabel1.Text = "Connected to database";
+            // 
+            // changeBackgroundToolStripMenuItem
+            // 
+            this.changeBackgroundToolStripMenuItem.Enabled = false;
+            this.changeBackgroundToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changeBackgroundToolStripMenuItem.Image")));
+            this.changeBackgroundToolStripMenuItem.Name = "changeBackgroundToolStripMenuItem";
+            this.changeBackgroundToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.changeBackgroundToolStripMenuItem.Text = "Change Background";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newFacultyToolStripMenuItem,
+            this.departmentToolStripMenuItem,
+            this.courseToolStripMenuItem});
+            this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
+            this.addToolStripMenuItem.Text = "Add";
+            // 
+            // newFacultyToolStripMenuItem
+            // 
+            this.newFacultyToolStripMenuItem.Enabled = false;
+            this.newFacultyToolStripMenuItem.Name = "newFacultyToolStripMenuItem";
+            this.newFacultyToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.newFacultyToolStripMenuItem.Text = "Faculty";
+            // 
+            // departmentToolStripMenuItem
+            // 
+            this.departmentToolStripMenuItem.Enabled = false;
+            this.departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
+            this.departmentToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.departmentToolStripMenuItem.Text = "Department";
+            // 
+            // courseToolStripMenuItem
+            // 
+            this.courseToolStripMenuItem.Enabled = false;
+            this.courseToolStripMenuItem.Name = "courseToolStripMenuItem";
+            this.courseToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.courseToolStripMenuItem.Text = "Course";
+            // 
+            // updateDeleteToolStripMenuItem
+            // 
+            this.updateDeleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facultyToolStripMenuItem,
+            this.departmentToolStripMenuItem1,
+            this.courseToolStripMenuItem1});
+            this.updateDeleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateDeleteToolStripMenuItem.Image")));
+            this.updateDeleteToolStripMenuItem.Name = "updateDeleteToolStripMenuItem";
+            this.updateDeleteToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
+            this.updateDeleteToolStripMenuItem.Text = "Update/Delete";
+            // 
+            // facultyToolStripMenuItem
+            // 
+            this.facultyToolStripMenuItem.Enabled = false;
+            this.facultyToolStripMenuItem.Name = "facultyToolStripMenuItem";
+            this.facultyToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.facultyToolStripMenuItem.Text = "Faculty";
+            // 
+            // departmentToolStripMenuItem1
+            // 
+            this.departmentToolStripMenuItem1.Enabled = false;
+            this.departmentToolStripMenuItem1.Name = "departmentToolStripMenuItem1";
+            this.departmentToolStripMenuItem1.Size = new System.Drawing.Size(158, 24);
+            this.departmentToolStripMenuItem1.Text = "Department";
+            // 
+            // courseToolStripMenuItem1
+            // 
+            this.courseToolStripMenuItem1.Enabled = false;
+            this.courseToolStripMenuItem1.Name = "courseToolStripMenuItem1";
+            this.courseToolStripMenuItem1.Size = new System.Drawing.Size(158, 24);
+            this.courseToolStripMenuItem1.Text = "Course";
+            // 
+            // aToolStripMenuItem
+            // 
+            this.aToolStripMenuItem.Enabled = false;
+            this.aToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aToolStripMenuItem.Image")));
+            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.aToolStripMenuItem.Text = "About PMS";
+            // 
+            // contactUsToolStripMenuItem
+            // 
+            this.contactUsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendEmailToolStripMenuItem,
+            this.onlineChatToolStripMenuItem,
+            this.reportBugToolStripMenuItem});
+            this.contactUsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contactUsToolStripMenuItem.Image")));
+            this.contactUsToolStripMenuItem.Name = "contactUsToolStripMenuItem";
+            this.contactUsToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.contactUsToolStripMenuItem.Text = "Contact Us";
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Enabled = false;
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.sendEmailToolStripMenuItem.Text = "Send E-mail";
+            // 
+            // onlineChatToolStripMenuItem
+            // 
+            this.onlineChatToolStripMenuItem.Enabled = false;
+            this.onlineChatToolStripMenuItem.Name = "onlineChatToolStripMenuItem";
+            this.onlineChatToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.onlineChatToolStripMenuItem.Text = "Online Chat";
+            // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Enabled = false;
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.reportBugToolStripMenuItem.Text = "Report Bug";
             // 
             // Form1
             // 
@@ -261,6 +414,22 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.ToolStripMenuItem userSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeBackgroundToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newFacultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem courseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateDeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem departmentToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem courseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactUsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onlineChatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;
 
 
 

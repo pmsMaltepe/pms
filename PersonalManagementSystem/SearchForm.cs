@@ -169,13 +169,20 @@ namespace PersonalManagementSystem
 
 
         }
-
+        adminTab form;
         private void button2_Click(object sender, EventArgs e)
         {
-            adminTab form = new adminTab();
-            form.searchID =Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
-            form.Show();
             
+            if (form == null || form.closed == true)
+            {   
+                form = new adminTab();
+                form.searchID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("You already opened one...");
+            }
         }
 
         private void searchCombo_KeyPress(object sender, KeyPressEventArgs e)
@@ -192,6 +199,11 @@ namespace PersonalManagementSystem
                     btnFind_Click(sender, e);
                 }
             }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button2_Click(sender, e);
         }
     }
 }
