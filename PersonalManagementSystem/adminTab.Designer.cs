@@ -402,7 +402,6 @@
             // 
             this.oldPass.Location = new System.Drawing.Point(170, 82);
             this.oldPass.Name = "oldPass";
-            this.oldPass.PasswordChar = '*';
             this.oldPass.Size = new System.Drawing.Size(108, 22);
             this.oldPass.TabIndex = 23;
             // 

@@ -172,16 +172,22 @@ namespace PersonalManagementSystem
         adminTab form;
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            if (form == null || form.closed == true)
-            {   
-                form = new adminTab();
-                form.searchID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
-                form.Show();
-            }
-            else
+            try
             {
-                MessageBox.Show("You already opened one...");
+                if (form == null || form.closed == true)
+                {
+                    form = new adminTab();
+                    form.searchID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You already opened one...");
+                }
+            }
+            catch {
+                MessageBox.Show("Do search !");
+                form = null;
             }
         }
 
@@ -201,7 +207,9 @@ namespace PersonalManagementSystem
             }
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             button2_Click(sender, e);
         }
