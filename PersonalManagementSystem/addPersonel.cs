@@ -18,7 +18,7 @@ namespace PersonalManagementSystem
 
     public partial class addPersonel : Form
     {
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
        
          int i=0;
          int bolumid ;
@@ -132,7 +132,31 @@ namespace PersonalManagementSystem
 
 
         }
+        private void textBosalt()
+        {
+            NameTextBox.Clear();
+            SurnameTextBox.Clear();
+            TcNoTextBox.Clear();
+            address.Clear();
+            InsRegisterNo.Clear();
+            homePhone.Clear();
+            mobilePhone.Clear();
+            BloodComboBox.SelectedIndex = 0;
+            FacultyComboBox.SelectedIndex = 0;
+            DeptComboBox.Items.Clear();
+            CourseComboBox.Items.Clear();
+        }
 
+        private void textUp()
+        {
+            NameTextBox.Text = NameTextBox.Text.ToUpper();
+            SurnameTextBox.Text = SurnameTextBox.Text.ToUpper();
+
+            address.Text = address.Text.ToUpper();
+            
+            
+ 
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             
@@ -160,7 +184,7 @@ namespace PersonalManagementSystem
 
                  try
                 {
-
+                    textUp();
                     SqlConnection baglanti = new SqlConnection(connstring);
 
 
@@ -262,7 +286,7 @@ namespace PersonalManagementSystem
                     komutInsertLogin.ExecuteNonQuery();
 
                     MessageBox.Show("Saved Succesfully... \nLogin Details, \nUsername:" + TcNoTextBox.Text + "\nPassword:maltepe");
-
+                    textBosalt();
 
                     baglanti.Close();
                 }

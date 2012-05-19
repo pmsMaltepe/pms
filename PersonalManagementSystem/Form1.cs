@@ -15,8 +15,8 @@ namespace PersonalManagementSystem
 {
     public partial class Form1 : Form
     {
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
-        public string sessionUserID="3";// Set to 3 for testing
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
+        public string sessionUserID = "3";// Set to 3 for testing
 
         public Form1()
         {

@@ -14,7 +14,7 @@ namespace PersonalManagementSystem
     public partial class SearchForm : Form
     {
         public bool closed = false;
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
         int control;
         public SearchForm()
         {
@@ -151,9 +151,9 @@ namespace PersonalManagementSystem
                 dataGridView1.Columns[0].Width = 110;
                 dataGridView1.Columns[1].HeaderText = "NAME";
                 dataGridView1.Columns[1].Width = 110;
-                dataGridView1.Columns[1].HeaderText = "SURNAME";
+                dataGridView1.Columns[2].HeaderText = "SURNAME";
                 dataGridView1.Columns[1].Width = 110;
-                dataGridView1.Columns[1].HeaderText = "INSTUTY NO";
+                dataGridView1.Columns[3].HeaderText = "INSTUTY NO";
                 dataGridView1.Columns[1].Width = 110;
 
                 dataGridView1.Columns["PersonelID"].Visible = false;
@@ -174,9 +174,11 @@ namespace PersonalManagementSystem
         {
             try
             {
+                
                 if (form == null || form.closed == true)
                 {
                     form = new adminTab();
+                    
                     form.searchID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
                     form.Show();
                 }

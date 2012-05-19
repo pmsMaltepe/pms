@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminTab));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnPdf = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,8 +55,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.InsRegisterNo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.CourseComboBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.DeptComboBox = new System.Windows.Forms.ComboBox();
             this.FacultyComboBox = new System.Windows.Forms.ComboBox();
@@ -82,6 +83,8 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CourseComboBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -89,10 +92,14 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btnPdf);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
@@ -106,6 +113,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 133);
             this.panel1.TabIndex = 3;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(514, 44);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(60, 17);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "Export...";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Location = new System.Drawing.Point(481, 64);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(50, 50);
+            this.button4.TabIndex = 25;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnPdf
+            // 
+            this.btnPdf.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPdf.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPdf.BackgroundImage")));
+            this.btnPdf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPdf.Location = new System.Drawing.Point(537, 64);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(50, 50);
+            this.btnPdf.TabIndex = 24;
+            this.btnPdf.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPdf.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
@@ -211,8 +252,6 @@
             this.groupBox2.Controls.Add(this.btnCancel);
             this.groupBox2.Controls.Add(this.InsRegisterNo);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.CourseComboBox);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.DeptComboBox);
             this.groupBox2.Controls.Add(this.FacultyComboBox);
@@ -234,7 +273,7 @@
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(431, 356);
+            this.btnSave.Location = new System.Drawing.Point(334, 356);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(91, 107);
             this.btnSave.TabIndex = 32;
@@ -246,7 +285,7 @@
             // 
             // dateTextBox
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(163, 229);
+            this.dateTextBox.Location = new System.Drawing.Point(163, 193);
             this.dateTextBox.Mask = "00-00-0000";
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.Size = new System.Drawing.Size(175, 22);
@@ -325,7 +364,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(13, 223);
+            this.label15.Location = new System.Drawing.Point(13, 193);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 17);
             this.label15.TabIndex = 30;
@@ -336,7 +375,7 @@
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
             this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCancel.Location = new System.Drawing.Point(334, 356);
+            this.btnCancel.Location = new System.Drawing.Point(431, 356);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(91, 107);
             this.btnCancel.TabIndex = 20;
@@ -362,25 +401,6 @@
             this.label14.Size = new System.Drawing.Size(144, 17);
             this.label14.TabIndex = 27;
             this.label14.Text = "Instution Register No:";
-            // 
-            // CourseComboBox
-            // 
-            this.CourseComboBox.FormattingEnabled = true;
-            this.CourseComboBox.Items.AddRange(new object[] {
-            "Please Choose"});
-            this.CourseComboBox.Location = new System.Drawing.Point(163, 193);
-            this.CourseComboBox.Name = "CourseComboBox";
-            this.CourseComboBox.Size = new System.Drawing.Size(282, 24);
-            this.CourseComboBox.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 193);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Courses :";
             // 
             // label9
             // 
@@ -682,13 +702,34 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.CourseComboBox);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(877, 506);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Academic Informations";
+            this.tabPage2.Text = "Academic Information";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // CourseComboBox
+            // 
+            this.CourseComboBox.FormattingEnabled = true;
+            this.CourseComboBox.Items.AddRange(new object[] {
+            "Please Choose"});
+            this.CourseComboBox.Location = new System.Drawing.Point(167, 72);
+            this.CourseComboBox.Name = "CourseComboBox";
+            this.CourseComboBox.Size = new System.Drawing.Size(282, 24);
+            this.CourseComboBox.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Courses :";
             // 
             // adminTab
             // 
@@ -715,6 +756,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -744,8 +787,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox InsRegisterNo;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox CourseComboBox;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox DeptComboBox;
         private System.Windows.Forms.ComboBox FacultyComboBox;
@@ -774,5 +815,10 @@
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnPdf;
+        private System.Windows.Forms.ComboBox CourseComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label18;
     }
 }

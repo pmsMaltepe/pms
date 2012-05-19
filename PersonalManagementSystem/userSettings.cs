@@ -16,7 +16,7 @@ namespace PersonalManagementSystem
         public string sessionID="0";
         public bool closed = false;
         bool passSame = true;
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
         SqlConnection baglanti;
         string oldPassword="";
         public userSettings()

@@ -16,15 +16,17 @@ namespace PersonalManagementSystem
 {
     public partial class PersonelForm : Form
     {
-        const string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
+        
         public string sessionUserID;
         public PersonelForm()
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(connstring);
+        
         private void PersonelForm_Load(object sender, EventArgs e)
         {
+            SqlConnection baglanti = new SqlConnection(connstring);
             try
             {
                 
@@ -122,6 +124,8 @@ namespace PersonalManagementSystem
 
         private void OnaylaButton_Click(object sender, EventArgs e)
         {
+            SqlConnection baglanti = new SqlConnection(connstring);
+           
             try
             {
                 baglanti.Open();

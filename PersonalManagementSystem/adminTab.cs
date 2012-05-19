@@ -8,15 +8,21 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Resources;
 
 namespace PersonalManagementSystem
 {
-    //implemented and designed by Eren Erciyes
+    //implemented and designed by Yigitcan Bacakoglu
+    //implemented by Eren Erciyes
     public partial class adminTab : Form
     {
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
-        int ID,unique,departmanID,bolumid;
+
+
+        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + "\\pms.mdf;Integrated Security=True;User Instance=True";
+        int ID, unique, departmanID, bolumid;
         string text;
+        
         public int searchID;//comes from searchForm 
         public bool closed = false;
         public adminTab()
@@ -152,9 +158,9 @@ namespace PersonalManagementSystem
 
                 while (reader.Read())
                 {
-                    lblAdSoyad.Text = "Name Surname : " + reader["Ad"].ToString().TrimEnd() + "  " + reader["Soyad"].ToString().TrimEnd();
-                    NameTextBox.Text = reader["Ad"].ToString().TrimEnd();
-                    SurnameTextBox.Text = reader["Soyad"].ToString().TrimEnd();
+                    lblAdSoyad.Text = reader["Ad"].ToString().TrimEnd().ToUpper() + "  " + reader["Soyad"].ToString().TrimEnd().ToUpper();
+                    NameTextBox.Text = reader["Ad"].ToString().TrimEnd().ToUpper();
+                    SurnameTextBox.Text = reader["Soyad"].ToString().TrimEnd().ToUpper();
                     TcNoTextBox.Text = reader["TcKimlikNo"].ToString().TrimEnd();
 
                     if (reader["Cinsiyet"].ToString().TrimEnd() == "Male")
@@ -210,7 +216,7 @@ namespace PersonalManagementSystem
                 reader = komut2.ExecuteReader();
                 while (reader.Read())
                 {
-                    lblBirim.Text = "Faculty: " + reader["Fakulte"].ToString().TrimEnd();
+                    lblBirim.Text =reader["Fakulte"].ToString().TrimEnd();
 
                 }
                 reader.Close();
@@ -249,8 +255,8 @@ namespace PersonalManagementSystem
                 reader = komut6.ExecuteReader();
                 while (reader.Read())
                 {
-                    lblBolum.Text = "Department: " + reader["BolumAdi"].ToString().TrimEnd();
-                    DeptComboBox.Text = lblBolum.Text.Substring(12);
+                    lblBolum.Text =reader["BolumAdi"].ToString().TrimEnd();
+                    DeptComboBox.Text = lblBolum.Text;
 
                 }
          
@@ -276,7 +282,23 @@ namespace PersonalManagementSystem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure to delete this person?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlConnection baglanti = new SqlConnection(connstring);
+                    SqlCommand komut = new SqlCommand("Delete from Kisisel_Bilgiler where PersonelID="+ID,baglanti);
+                    SqlCommand komut2 = new SqlCommand("Delete from Login where PersonalID=" + ID, baglanti);
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    komut2.ExecuteNonQuery();
+                    MessageBox.Show("Deleted Succesfully");
+                    
+                    baglanti.Close();
+                    this.Close();
+                }
+                catch { MessageBox.Show("Error occured"); }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -386,6 +408,89 @@ namespace PersonalManagementSystem
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {/*
+            Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Workbook wb = xla.Workbooks.Add(Excel.XlSheetType.xlWorksheet);
+            Excel.Worksheet ws = (Excel.Worksheet)xla.ActiveSheet;
+            
+            xla.Visible = true;*/
+
+            Excel.Application xlApp ;
+            Excel.Workbook xlWorkBook ;
+            Excel.Worksheet ws ;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Excel.ApplicationClass();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            ws = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            xlApp.Visible = true;
+
+            //Sayfa ayarlari
+
+            ws.PageSetup.PaperSize = Excel.XlPaperSize.xlPaperA4;
+            ws.get_Range("A1", "H8").Font.Bold = true;
+            ws.get_Range("A1", "H8").Font.Size=14;
+            //
+            
+            //ResourceManager resManager = new ResourceManager("PersonalManagementSystem.Resource1",System.Reflection.Assembly.GetExecutingAssembly());
+
+            // resmi kopyalayip yapistiran kod
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminTab));
+            
+            //Image image = ((System.Drawing.Image)(resources.GetObject("1")));
+            //System.Windows.Forms.Clipboard.SetDataObject(image, true);
+            //ws.Paste(ws.get_Range("A2", "A2"), image);
+
+            ws.Shapes.AddPicture(Application.StartupPath+"\\1.JPG", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 0, 0, 70, 70); 
+            
+
+            
+            ws.Cells[3, 3] = "T.C. MALTEPE UNIVERSITY";
+            ws.Cells[4, 3] = FacultyComboBox.Text.ToUpper();
+            ws.Cells[7, 1] = "Personnel Information";
+
+            ws.Cells[9, 1] = "Type";
+            ws.Cells[10, 1] = "Title";
+            ws.Cells[11, 1] = "Name";
+            ws.Cells[12, 1] = "SurName";
+            ws.Cells[13, 1] = "TC No";
+            ws.Cells[14, 1] = "Gender";
+            ws.Cells[15, 1] = "Blood Type";
+            ws.Cells[16, 1] = "Home Phone";
+            ws.Cells[17, 1] = "Mobile Phone";
+            ws.Cells[18, 1] = "Address";
+            ws.Cells[19, 1] = "Institution Reg. No.";
+            
+           
+            ws.Cells[20, 1] = "Faculty";
+            ws.Cells[21, 1] = "Departmant";
+            ws.Cells[22, 1] = "Courses";
+            ws.Cells[23, 1] = "PMS User Type";
+
+
+
+            ws.Cells[10, 3] = ": " + TitleComboBox.Text.ToUpper();
+            ws.Cells[9, 3] = ": " + TypeComboBox.Text.ToUpper();
+            
+            ws.Cells[11, 3] =": "+ NameTextBox.Text.ToUpper();
+            ws.Cells[12, 3] = ": " + SurnameTextBox.Text.ToUpper();
+            ws.Cells[13, 3] = ": " + TcNoTextBox.Text;
+            ws.Cells[14, 3] = ": " + ((maleRadio.Checked) ? "MALE" : "FEMALE");
+            ws.Cells[15, 3] = ": " + BloodComboBox.Text;
+            ws.Cells[16, 3] = ": " + homePhone.Text;
+            ws.Cells[17, 3] = ": " + mobilePhone.Text;
+            ws.Cells[18, 3] = ": " + address.Text.ToUpper();
+            ws.Cells[19, 3] = ": " + InsRegisterNo.Text;
+            ws.Cells[20, 3] = ": " + FacultyComboBox.Text.ToUpper();
+            ws.Cells[21, 3] = ": " + DeptComboBox.Text.ToUpper();
+            ws.Cells[22, 3] = ": " + CourseComboBox.Text.ToUpper();
+            ws.Cells[23, 3] = ": " + ((radioAdmin.Checked) ? "ADMIN" : "PERSONNEL");
+
+        }
+
         
 
     }

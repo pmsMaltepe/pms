@@ -13,7 +13,10 @@ namespace PersonalManagementSystem
 {
     public partial class forgotPass : Form
     {
-        string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        //asil connstring
+        //string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\pms.mdf;Integrated Security=True;User Instance=True";
+        //string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Users\\Work\\Documents\\Visual Studio 2008\\Projects\\PersonalManagementSystem\\PersonalManagementSystem\\bin\\Debug\\pms.mdf\";Integrated Security=True;User Instance=True";
+         string connstring = "Data Source=.\\SQLEXPRESS;AttachDbFilename="+Application.StartupPath+"\\pms.mdf;Integrated Security=True;User Instance=True";
        
         public forgotPass()
         {
@@ -26,7 +29,7 @@ namespace PersonalManagementSystem
             if (textBox1.Text.TrimEnd() != "")
             {
                 try
-                {
+               {
                     SqlConnection baglanti = new SqlConnection(connstring);
                     baglanti.Open();
                     SqlCommand komut = new SqlCommand("Select * from Login Where UserName='" + textBox1.Text + "'", baglanti);
@@ -44,7 +47,7 @@ namespace PersonalManagementSystem
                     label3.Visible = true;
                     alinan_veri.Close();
                     baglanti.Close();
-                }
+              }
                 catch
                 {
                     lblError.Visible = true;
@@ -60,5 +63,19 @@ namespace PersonalManagementSystem
         {
             this.Close();
         }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    button1_Click(sender, e);
+                }
+            }
+        
+        }
+
+     
     }
 }
