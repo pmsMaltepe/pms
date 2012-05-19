@@ -44,6 +44,7 @@ namespace PersonalManagementSystem
                     Form1 form = new Form1();
                     form.sessionUserID = sessionPersonelID;
                     form.Show();
+                    label3.Visible = false;
                     this.Visible = false;
                 }
                 else if (alinan_veri["UserLevel"].ToString() == "False")
@@ -51,6 +52,7 @@ namespace PersonalManagementSystem
                     PersonelForm form = new PersonelForm();
                     form.sessionUserID = sessionPersonelID;
                     form.Show();
+                    label3.Visible = false;
                     this.Visible = false;
                 }
                 else
@@ -68,7 +70,7 @@ namespace PersonalManagementSystem
                 this.Visible = false;
                 
               // MessageBox.Show("Error!");*/
-                label3.Text = "Please fill the blanks..";
+               
                 label3.Visible = true;
             }
 
