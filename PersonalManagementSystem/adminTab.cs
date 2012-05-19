@@ -185,22 +185,22 @@ namespace PersonalManagementSystem
                             FacultyComboBox.SelectedIndex = 3;
                             break;
                         case 4:
-                            FacultyComboBox.SelectedIndex = 5;
+                            FacultyComboBox.SelectedIndex = 4;
                             break;
                         case 1:
-                            FacultyComboBox.SelectedIndex = 6;
+                            FacultyComboBox.SelectedIndex = 5;
                             break;
                         case 9:
-                            FacultyComboBox.SelectedIndex = 7;
+                            FacultyComboBox.SelectedIndex = 6;
                             break;
                         case 5:
-                            FacultyComboBox.SelectedIndex = 8;
+                            FacultyComboBox.SelectedIndex = 7;
                             break;
                         case 2:
-                            FacultyComboBox.SelectedIndex = 9;
+                            FacultyComboBox.SelectedIndex = 8;
                             break;
                         case 8:
-                            FacultyComboBox.SelectedIndex = 10;
+                            FacultyComboBox.SelectedIndex = 9;
                             break;
                     }
 
