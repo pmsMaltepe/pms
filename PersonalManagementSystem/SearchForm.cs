@@ -178,7 +178,7 @@ namespace PersonalManagementSystem
                 if (form == null || form.closed == true)
                 {
                     form = new adminTab();
-                    
+                    form.MdiParent = this.MdiParent;
                     form.searchID = Convert.ToInt16(dataGridView1.CurrentRow.Cells["PersonelID"].Value);
                     form.Show();
                 }

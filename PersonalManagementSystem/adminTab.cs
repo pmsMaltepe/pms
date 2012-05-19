@@ -295,6 +295,7 @@ namespace PersonalManagementSystem
                     MessageBox.Show("Deleted Succesfully");
                     
                     baglanti.Close();
+                    closed = true;
                     this.Close();
                 }
                 catch { MessageBox.Show("Error occured"); }
@@ -488,10 +489,21 @@ namespace PersonalManagementSystem
             ws.Cells[21, 3] = ": " + DeptComboBox.Text.ToUpper();
             ws.Cells[22, 3] = ": " + CourseComboBox.Text.ToUpper();
             ws.Cells[23, 3] = ": " + ((radioAdmin.Checked) ? "ADMIN" : "PERSONNEL");
+            
+            xlWorkBook.Close(true,misValue,misValue);
+            xlApp.Quit();
+            ExcelKill();
+            
 
         }
 
-        
+        private void ExcelKill()
+        {
+            foreach (System.Diagnostics.Process p in System.Diagnostics.Process.GetProcesses())
+                if (p.ProcessName == "EXCEL")
+                    p.Kill();
+        }
+
 
     }
 }

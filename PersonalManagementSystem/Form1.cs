@@ -152,6 +152,24 @@ namespace PersonalManagementSystem
             form.Show();
             this.Close();
         }
+        Form2 formAbout;
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+            if (formAbout == null || formAbout.closed == true)
+            {
+                formAbout = new Form2();
+                // formAbout.MdiParent = this;
+                 formAbout.Show();
+            }
+            else
+            {
+                MessageBox.Show("You already opened one...");
+            }
+
+
+        }
 
        
     }

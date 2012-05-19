@@ -55,19 +55,21 @@ namespace PersonalManagementSystem
                 }
                 else
                 {//basarısız giris
-                    MessageBox.Show("User name or password is wrong!");
+                    label3.Text = "Username or password is incorrect";
                     label3.Visible = true;
                 }
             }
             catch (InvalidOperationException ex)
             {
                 
-                //FOR TESTING
+               /* //FOR TESTING
                 Form1 form = new Form1();
                 form.Show();
                 this.Visible = false;
                 
-              // MessageBox.Show("Error!");
+              // MessageBox.Show("Error!");*/
+                label3.Text = "Please fill the blanks..";
+                label3.Visible = true;
             }
 
 

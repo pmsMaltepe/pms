@@ -122,6 +122,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(254, 13);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 105);
@@ -306,11 +307,11 @@
             // 
             // aToolStripMenuItem
             // 
-            this.aToolStripMenuItem.Enabled = false;
             this.aToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aToolStripMenuItem.Image")));
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.aToolStripMenuItem.Text = "About PMS";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // contactUsToolStripMenuItem
             // 

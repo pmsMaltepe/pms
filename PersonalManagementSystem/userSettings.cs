@@ -75,8 +75,9 @@ namespace PersonalManagementSystem
                     komut.ExecuteNonQuery();
                     baglanti.Close();
                     MessageBox.Show("Updated");
-                    this.Close();
                     closed = true;
+                    this.Close();
+                    
                 }
                 else {
                     MessageBox.Show("The informations you entered are not correct");
