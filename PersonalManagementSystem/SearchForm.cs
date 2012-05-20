@@ -62,6 +62,11 @@ namespace PersonalManagementSystem
                 {
                     komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler where Soyad='" + searchTextBox.Text + "'";
                 }
+                if (searchCombo.SelectedIndex==5)
+                {
+                    komut.CommandText = "select TcKimlikNo,Ad,Soyad,KurumSicilNo,PersonelID from Kisisel_Bilgiler";
+                    
+                }
                 if (searchCombo.Text == "Faculty")
                 {
                     switch (searchTextBox.Text)

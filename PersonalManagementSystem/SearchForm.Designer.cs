@@ -46,7 +46,8 @@
             "Name",
             "Surname",
             "Faculty",
-            "Blood Type"});
+            "Blood Type",
+            "Find All Personnel"});
             this.searchCombo.Location = new System.Drawing.Point(12, 12);
             this.searchCombo.Name = "searchCombo";
             this.searchCombo.Size = new System.Drawing.Size(168, 24);
